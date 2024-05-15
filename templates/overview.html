@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>
+        </title>
+    </head>
+    <body>
+        <form method="post" action="{% url 'overview' %}">
+            {{form.as_p}}
+            {% csrf_token %}
+            
+            <button type="submit" class="btn btn-secondary">submit </button>
+        </form> 
+        <br>
+        total={{ total }}
+        <br>
+        <br>
+        <table border="1">
+            <tr>
+                <th>used_in</th>
+                <th>category</th>
+                <th>amount</th>
+                <th>date</th>
+                
+            </tr>
+            {% for i in data %}
+                <tr> 
+                    <th>{{ i.used_in }}</th>
+                    <th>{{ i.category }}</th>
+                    <th>{{ i.amount }}</th>
+                    <th>{{ i.date }}</th>
+                </tr>
+            {% endfor %}
+        </table>
+        <br><br>
+        <div class="Statement">
+            <p><a href="{% url 'generate_pdf' %}" download >Download Statement(PDF)</a></p>
+        </div>
+        
+
+    </body>
+</html>

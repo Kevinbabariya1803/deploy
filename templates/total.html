@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>
+
+        </title>
+    </head>
+    <body>
+        {% for total_monthly_income, net_monthly_income in income_list %}
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td nowrap>{{ total_monthly_income.month }}</td>
+            <td nowrap>{{ total_monthly_income.total_monthly_income | intcomma }}</td>
+            <td >{{ net_monthly_income | intcomma }}</td>
+        
+            <td nowrap>
+    </body>
+</html>
